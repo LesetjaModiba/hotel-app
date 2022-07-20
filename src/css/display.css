@@ -1,0 +1,50 @@
+.disp-content
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    border-left: solid 1px gray;
+    border-right: solid 1px gray;
+    display:grid;
+}
+.hotel-card
+{
+    display: block;
+    width: 75%;
+    height: 61vh;
+    margin: 20px;
+    border: solid 1px black;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+.hotel-pic
+{
+    width: 100%;
+}
+.img-div
+{
+    height: 430px;
+    overflow: hidden;
+    margin-top: 30px;
+}
+.location-pic
+{
+    margin-left: 24px;
+    width: 15px;
+}
+.name
+{
+    font-weight: 600;
+    font-size: 20px;
+    margin-left: 25px;
+}
+.location
+{
+    font-weight: 500;
+}
+.price
+{
+    margin-left: 28px;
+    font-weight: 500;
+}

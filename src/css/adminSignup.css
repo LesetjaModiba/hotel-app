@@ -1,0 +1,90 @@
+*
+{
+    font-family: sans-serif;
+}
+h1
+{
+    margin-bottom: 20px;
+   color:black;
+}
+.input1
+{
+    border-radius: 20px;  
+
+}
+.input1:hover
+{
+    border: rgb(35, 167, 167) solid 2px;
+}
+.sign-container
+{
+    margin-top: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 650px;
+    height: 600px;
+    background-color: rgb(226, 226, 226);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px 0 rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.sign-container input
+{
+    width: 500px;
+    height: 30px;
+    padding: 2%;
+    margin: 10px;
+    border: none;
+    border-radius:10px ;
+}
+button
+{
+    width: 300px;
+    height: 45px;
+    border-radius: 8px;
+    border: none;
+    padding: 1%;
+    margin: 12px;  
+    cursor: pointer;
+  background: black;
+    font-size: medium;
+    color: white;
+}
+button:hover
+{
+    
+    background:#ffdd62;
+}
+.nameError
+{
+    color: rgba(255, 35, 35, 0.993);
+    display:none;
+}
+.emailError
+{
+    color: rgba(255, 35, 35, 0.993);
+    display:none;
+}
+.passError
+{
+    color: rgba(255, 35, 35, 0.993);
+    display: none;
+}
+.cPassError
+{
+    color: rgba(255, 35, 35, 0.993);
+    display:none;
+}
+.check
+{
+    color: black;
+    width: 10px;
+}
+.link2
+{
+    color: black;
+
+}

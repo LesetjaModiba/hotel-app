@@ -1,0 +1,9 @@
+.manage
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    border-left: solid 1px gray;
+    border-right: solid 1px gray;
+    text-align: center;
+}

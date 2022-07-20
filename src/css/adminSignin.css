@@ -1,0 +1,83 @@
+*
+{
+    font-family: sans-serif;
+}
+h1
+{
+    margin-bottom: 20px;
+    color: rgba(7, 8, 8, 0.993);
+}
+.email
+{
+    border-radius: 20px;  
+
+}
+.email:hover
+{
+    border: rgb(35, 167, 167) solid 2px;
+}
+.password
+{
+    border-radius: 20px;  
+}
+.password:hover
+{
+    border: rgb(35, 167, 167) solid 2px;
+}
+.login-container
+{
+    margin-top: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 650px;
+    height: 400px;
+    background-color: rgb(226, 226, 226);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px 0 rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.login-container input
+{
+    width: 500px;
+    height: 30px;
+    padding: 2%;
+    margin: 10px;
+    border: none;
+    border-radius:10px ;
+}
+.login-btn
+{
+    width: 300px;
+    height: 45px;
+    border-radius: 8px;
+    border: none;
+    padding: 1%;
+    margin: 12px;  
+    cursor: pointer;
+    background: black;
+    font-size: medium;
+    color: white;
+}
+.login-btn:hover
+{
+    
+    background:rgb(61, 61, 61);
+}
+.emailError
+{
+    color: rgba(255, 35, 35, 0.993);
+    display:none;
+}
+.passError
+{
+    color: rgba(255, 35, 35, 0.993);
+    display: none;
+}
+.link1
+{
+    color: rgb(0, 0, 0);
+}

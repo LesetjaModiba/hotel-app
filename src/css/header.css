@@ -1,0 +1,63 @@
+.header-content
+{
+display: flex;
+width: 100%;
+height: 60px;
+color: aliceblue;
+background-color: #333537;
+}
+.header-content h3{
+
+    width: 110px;
+    height: 50px;
+}
+.header-content h3:hover{
+
+    color:#F9C200; 
+    transition: 0.2s;
+    cursor: pointer;
+}
+.text
+{
+    display: flex;
+   position: absolute;
+   right: 10px;
+   text-align: center;
+}
+label
+{
+    margin: 15px;
+    font-size: 30px;
+    display: none;
+    
+}
+#check
+{
+    display:none;
+}
+@media only screen and (max-width:900px){
+    .text{
+        display: none;
+    }
+.header-content label
+{
+    display:block;
+    transition: ease-in-out;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.text h2{
+    font-weight: 300;
+    font-size:16px;
+    width: 250px;
+}
+.text
+{
+    top: 60px;
+    background-color: black;
+}
+/* #check:checked + .text
+{
+display: block;
+}     */
+}
