@@ -3,18 +3,13 @@ import { useHistory, Link} from 'react-router-dom';
 // import { createUserWithEmailAndPassword } from 'firebase/auth';
 // import { auth } from '../config/firebase';
 import { useState } from 'react';
-function AdminSignUp()
+function ClientSignUp()
 {
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
-    const [adminId,setAdminId]=useState('');
     let history=useHistory();
     const signUpClick=(()=>
     {
-        if(document.querySelector("#admin").value==="")
-        {
-            document.querySelector(".adminError").style.display='block';
-        }
         if(document.querySelector("#name").value==="")
         {
             document.querySelector(".nameError").style.display='block';
@@ -33,7 +28,7 @@ function AdminSignUp()
         }
         else
         {
-            history.push("/adminSignin")
+            history.push("/clientSignin")
         }
     //  history.push("/home")
     // {createUserWithEmailAndPassword(auth, email, password).then(()=>{
@@ -42,10 +37,6 @@ function AdminSignUp()
     // }
     });
 
-    const adminKey=(()=>
-    {
-        document.querySelector(".adminError").style.display='none';
-    });
     const nameKey=(()=>
     {
        document.querySelector(".nameError").style.display='none';
@@ -64,9 +55,7 @@ function AdminSignUp()
     });
     return(
         <div className='sign-container'>
-        <h1>Admin Sign Up</h1>
-        <input onKeyPress={adminKey} onChange={(e)=>setAdminId(e.target.value)} className='input1' id='admin' type="text" placeholder="Admin ID"/>
-        <span className='adminError'>Enter the Admin ID !</span>
+        <h1>Client Sign Up</h1>
         <input onKeyPress={nameKey} className='input1' id='name' type="text" placeholder="Name and Surname"/>
         <span className='nameError' >Enter your name and surname !</span>
         <input onKeyPress={emailKey} onChange={(e)=>setEmail(e.target.value)} className='input1' id='email' type="email" placeholder="email example@gmail.com"/>
@@ -77,10 +66,10 @@ function AdminSignUp()
         <span className='cPassError'>Confirm your password !</span>
         <imput className="check" type="checkbox"/>
         <label for="check">Show password</label> 
-        <Link className='link2' to="/adminSignin">Already have and account? Log in here</Link>
-        <button onClick={signUpClick}>Sing up</button>
+        <Link className='link2' to="/clientSignin">Already have and account? Log in here</Link>
+        <button onClick={signUpClick}>Sign up</button>
         </div>
     )
 
 }
-export default AdminSignUp;
+export default ClientSignUp;

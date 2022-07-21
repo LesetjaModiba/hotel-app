@@ -4,14 +4,14 @@ const LoginAs = () => {
     let history=useHistory();
     const client=()=>
     {
-        history.push("/clientHome")
+        history.push("/clientSignin")
     }
     const admin=()=>
     {
-        history.push("/AdminHome")
+        history.push("/adminSignin")
     }
     return ( 
-        <div className="login-container">
+        <div className="loginas-container">
         <h1>Log in as</h1>
         
         <button className='login-btn' onClick={client}>Client</button>

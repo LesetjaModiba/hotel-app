@@ -8,6 +8,7 @@ const Add = () => {
     const [name,setName]=useState("");
     const [location,setLocation]=useState("");
     const [price,setPrice]=useState("");
+    const [map,setMap]=useState("");
 // Handles input change event and updates state
 function handleChange(event) {
     setFile(event.target.files[0]);
@@ -18,8 +19,10 @@ const upload=(()=>
     const hotelDetails={
         name:name,
         location:location,
+        map:map,
         price:price,
         image:file.name
+        
     };
     addDoc(collectionRef, hotelDetails).then(()=>{
         alert("added successfully")
@@ -35,7 +38,9 @@ const upload=(()=>
                 <div className="form">
                  <input required placeholder="Hotel name" onChange={(e)=>setName(e.target.value)}/>
                  <input required placeholder="Location" onChange={(e)=>setLocation(e.target.value)}/>
+                 <input required placeholder="Link from Google maps..." onChange={(e)=>setMap(e.target.value)}/>
                  <input required placeholder="Price" onChange={(e)=>setPrice(e.target.value)}/>
+                 
                  <label htmlFor="file">Choose imag</label>
                  <input type="file" id ="file" accept="image/*" onChange={handleChange}/>
                  <br></br>

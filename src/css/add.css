@@ -4,11 +4,13 @@
     height: 50px;
     padding-top: 12px;
     background: #333537;
+    background-color: rgb(35, 42, 48);
     color: aliceblue;
 }
 .form{
     width: 60%;
     background-color: #333537;
+    background-color: rgb(35, 42, 48);
     padding: 4%;
     border-radius: 20px;
     margin-left: auto;

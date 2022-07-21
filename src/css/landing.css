@@ -26,11 +26,79 @@
     border-radius: 20px;
     box-shadow: 0 4px 20px 0 rgb(0, 0, 0);
 }
+.landing-hotel-card p
+{
+    margin-top: 12px;
+}
+.search-container
+{
+
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 68%;
+    height: 160px;
+    background-color: rgb(35, 42, 48);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px 0 rgb(0, 0, 0);
+    margin-bottom: 60px;
+    
+    
+}
+.search-icon
+{
+    width: 30px;
+    position: absolute;
+    top: 565px;
+    right: 28.6%;
+}
+.where
+{
+
+    margin-left: auto;
+    margin-right: auto;
+    width: 65%;
+    height: 60px;
+    padding-left: 1%;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px 0 rgb(0, 0, 0);
+    font-size: 16px;
+}
+.checkin
+{
+height: 40px;
+border-top: 5px orange solid;
+border-bottom: 5px orange solid;
+border-right: 5px orange solid;
+border-left: none;
+}
+.checkout
+{
+height: 40px;
+border-top: 5px orange solid;
+border-bottom: 5px orange solid;
+border-left: none;
+border-right: none;
+}
+.search-btn
+{
+    border: 5px orange solid;
+    background-color: rgb(56, 157, 240);
+    color: white;
+    height: 50px;
+    width: 100px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
 .header-img-div
 {
     overflow: hidden;
-    height: 600px;
-    margin-bottom: 70px;
+    height: 400px;
+    margin-bottom: 40px;
 }
 .offer
 {
@@ -61,14 +129,14 @@
     height: 80px;
     opacity: 40%;
     position: absolute;
-    top: 380px;
+    top: 350px;
 }
 .welcome
 {
     position: absolute;
     color: aliceblue;
     font-size:50px;
-     top:360px;
+     top:330px;
      left: 25%;
 }
 .wall-pic
@@ -118,14 +186,19 @@
 .details-div .name
 {
     font-size: 20px;
+    margin-bottom: 0;
 }
 .details-div .location
 {
     font-weight: 600;
+    margin-top: 4px;
+    margin-bottom: 0px;
 }
 .details-div .price
 {
     font-weight: 600;
+    margin-top: 4px;
+    margin-bottom: 3px;
 }
 .icon-div
 {

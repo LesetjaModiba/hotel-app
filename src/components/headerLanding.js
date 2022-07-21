@@ -19,7 +19,7 @@ const HeaderLanding = () => {
     };
     const login=()=>
     {
-      history.push("/adminSignin")
+      history.push("/loginas")
     }
     return ( 
 

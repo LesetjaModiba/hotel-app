@@ -6,6 +6,7 @@ import { db } from "../config/firebase";
 
 const Landing = () => {
   const [details, setDetails] = useState([]);
+  const [searchItem,setSearchItem]=useState("")
 //   const [loading,setLoading]=useState("");
   useEffect(() => {
     const hotelCollectionRef = collection(db, "hotelDetails");
@@ -39,10 +40,31 @@ const Landing = () => {
          </div>
          <div className="badge">.</div>
          <h1 className="welcome">Welcome to Hotels South Africa</h1>
+         
+         <div className="search-container">
+          <input placeholder="Where do you want to go?..." type="text" className="where" onChange={(e)=>setSearchItem(e.target.value)}></input>
+          <img
+                className="search-icon"
+                src={require('../Assets/icons/search.png')}
+                alt="search"
+              />
+         {/* <input type="date" className="checkin"></input> 
+         <input type="date" className="checkout"></input> 
+         <input type="submit" className="search-btn"/> */}
+
+         </div>
       <div className="content-container">
-       
-  
-        {details.map((hotel, id) => (
+     
+        {details.filter((hotel)=>{
+          if (searchItem==="")
+          {
+            return hotel
+          }
+          else if(hotel.location.toLowerCase().includes(searchItem.toLowerCase()))
+          {
+            return hotel
+          }
+        }).map((hotel, id) => (
           <div className="landing-hotel-card" key={id}>
             <div className="hotel-img-div">
               <img

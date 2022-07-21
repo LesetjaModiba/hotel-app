@@ -4,6 +4,7 @@
     height:50px ;
     padding-top: 12px;
     background: #333537;
+    background-color: rgb(35, 42, 48);
     color: aliceblue;
 }
 .remove-card
@@ -16,6 +17,7 @@
     display: flex;
     border-radius:15px;
     background: #333537;
+    background-color: rgb(35, 42, 48);
     color: aliceblue;
 
 }
@@ -71,7 +73,7 @@
     height: 500px;
     border-radius: 20px;
     padding: 4%;
-    background-color: #333537;
+    background-color: rgb(35, 42, 48);
     margin-left: auto;
     margin-right: auto;
     position: absolute;

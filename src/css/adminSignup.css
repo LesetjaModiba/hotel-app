@@ -78,6 +78,11 @@ button:hover
     color: rgba(255, 35, 35, 0.993);
     display:none;
 }
+.adminError
+{
+    color: rgba(255, 35, 35, 0.993);
+    display:none;
+}
 .check
 {
     color: black;
