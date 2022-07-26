@@ -1,7 +1,7 @@
 import '../css/adminSignin.css'
 import { useHistory, Link } from 'react-router-dom';
-// import { signInWithEmailAndPassword } from 'firebase/auth';
-// import { auth } from '../config/firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../config/firebase';
 import { useState } from 'react';
 function ClientSignIn()
 {  
@@ -21,15 +21,15 @@ function ClientSignIn()
             document.querySelector(".passError").style.display='block';
         }
          else
-         {
-            history.push("/clientHome");
-         }
-        // {
-        //     signInWithEmailAndPassword(auth, email, password).then(()=>{
-        //         history.push("/clientHome");
-        //     }).catch((error)=>{alert("Error while logging in"); console.log(error)})
+        //  {
+        //     history.push("/clientHome");
+        //  }
+        {
+            signInWithEmailAndPassword(auth, email, password).then(()=>{
+                history.push("/clientHome");
+            }).catch((error)=>{alert("Error while logging in, Please check your email or password"); console.log(error)})
 
-        // }
+        }
          
     });
     const emailKey=(()=>

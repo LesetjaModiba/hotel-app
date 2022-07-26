@@ -1,0 +1,9 @@
+.booking-container
+{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 200px;
+    border-radius:20px ;
+    background-color: rgb(33, 43, 54);
+}

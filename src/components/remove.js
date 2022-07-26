@@ -18,6 +18,8 @@ const Remove = () => {
 
   const [hotelId,setHotelId]=useState("");
   const [hotelName,setHotelName]=useState("");
+  const [map,setMap]=useState("");
+ 
 
   useEffect(() => {
     const hotelCollectionRef = collection(db, "hotelDetails");
@@ -31,6 +33,7 @@ const Remove = () => {
           price: doc.data().price,
           image: doc.data().image,
           id: doc.id,
+          
         }))
       );
     };
@@ -63,6 +66,7 @@ const Remove = () => {
     const newHotelDetails = {
       name: name,
       location: location,
+      map:map,
       price: price,
       image: file.name,
     };
@@ -101,6 +105,10 @@ const Remove = () => {
             <input
               placeholder="Price"
               onChange={(e) => setPrice(e.target.value)}
+            ></input>{" "}
+             <br></br> <input
+              placeholder="Link from Google maps..."
+              onChange={(e) => setMap(e.target.value)}
             ></input>{" "}
             <br></br>
             <br></br>

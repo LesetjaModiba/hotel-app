@@ -1,33 +1,46 @@
+import ClientHeader from "./clientHeader";
 import "../css/landing.css";
-import HeaderLanding from "./headerLanding";
 import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../config/firebase";
+import { useHistory } from "react-router-dom";
+import { auth } from "../config/firebase";
+const ClientHome = () => {
+    const [details, setDetails] = useState([]);
+    const [searchItem,setSearchItem]=useState("");
+    const [hotelId,setHotelId]=useState("");
 
-const Landing = () => {
-  const [details, setDetails] = useState([]);
-  const [searchItem,setSearchItem]=useState("")
-//   const [loading,setLoading]=useState("");
-  useEffect(() => {
-    const hotelCollectionRef = collection(db, "hotelDetails");
+  //   const [loading,setLoading]=useState("");
+    useEffect(() => {
+      const hotelCollectionRef = collection(db, "hotelDetails");
+  
+      const getDetails = async () => {
+        const data = await getDocs(hotelCollectionRef);
+        setDetails(
+          data.docs.map((doc) => ({
+            name: doc.data().name,
+            location: doc.data().location,
+            price: doc.data().price,
+            id:doc.id,
+            image: doc.data().image,
+          }))
+        );
+      };
+      getDetails();
+    }, []);
 
-    const getDetails = async () => {
-      const data = await getDocs(hotelCollectionRef);
-      setDetails(
-        data.docs.map((doc) => ({
-          name: doc.data().name,
-          location: doc.data().location,
-          price: doc.data().price,
-          image: doc.data().image,
-        }))
-      );
-    };
-    getDetails();
-  }, []);
-  return (
-    <div className="main-content-container">
-         <HeaderLanding/>
-         <div className="header-img-div">
+    let history=useHistory()
+
+    const view=(id)=>
+    {
+        //  props.add(hotelId)
+        setHotelId(id)
+       history.push(`/viewhotel/${id}`)
+    }
+        return ( 
+        <div className="main-div-container">
+            <ClientHeader/>
+            <div className="header-img-div">
          <img
                 className="wall-pic"
                 src={require('../Assets/images/hotel1.jfif')}
@@ -39,7 +52,7 @@ const Landing = () => {
              <p><span className="fifty">50%</span>OFF</p>
          </div>
          <div className="badge">.</div>
-         <h1 className="welcome">Welcome to Hotels South Africa</h1>
+         <h1 className="welcome">Welcome to Hotels South Africa </h1>
          
          <div className="search-container">
           <input placeholder="Where do you want to go?..." type="text" className="where" onChange={(e)=>setSearchItem(e.target.value)}></input>
@@ -53,8 +66,8 @@ const Landing = () => {
          <input type="submit" className="search-btn"/> */}
 
          </div>
+        
       <div className="content-container">
-      <h1 className="hotels-in">Search result: Hotels in {searchItem}</h1>
         {details.filter((hotel)=>{
           if (searchItem==="")
           {
@@ -65,7 +78,7 @@ const Landing = () => {
             return hotel
           }
         }).map((hotel, id) => (
-          <div className="landing-hotel-card" key={id}>
+          <div className="landing-hotel-card" onClick={(e)=>view(hotel.id)} key={id}>
             <div className="hotel-img-div">
               <img
                 className="hotel-pic"
@@ -132,8 +145,8 @@ const Landing = () => {
           </div>
         ))}
       </div>
-    </div>
-  );
-};
-
-export default Landing;
+        </div>
+     );
+}
+ 
+export default ClientHome;

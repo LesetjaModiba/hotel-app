@@ -9,7 +9,7 @@
 }
 .remove-card
 {
-    width: 70%;
+    width: 73%;
     margin: 20px;
     margin-left: auto;
     margin-right: auto;
@@ -70,7 +70,7 @@
 .edit
 {
     width: 65%;
-    height: 500px;
+    height: 600px;
     border-radius: 20px;
     padding: 4%;
     background-color: rgb(35, 42, 48);
@@ -81,6 +81,7 @@
     left: 13.5%;
     display: none;
     transition: 0.3s;
+    box-shadow: 0px 4px 20px 0px black;
 }
 .edit input{
     width: 80%;

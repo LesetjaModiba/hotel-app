@@ -1,13 +1,18 @@
 import '../css/adminSignup.css';
 import { useHistory, Link} from 'react-router-dom';
-// import { createUserWithEmailAndPassword } from 'firebase/auth';
-// import { auth } from '../config/firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../config/firebase';
 import { useState } from 'react';
+import { collection } from 'firebase/firestore';
+import { db } from '../config/firebase';
 function AdminSignUp()
 {
+    const UsersCollectionRef=collection(db,"users")
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
     const [adminId,setAdminId]=useState('');
+    const [full_name,setFullName]=useState("");
+    const [location,setLocation]=useState("");
     let history=useHistory();
     const signUpClick=(()=>
     {
@@ -32,14 +37,18 @@ function AdminSignUp()
             document.querySelector(".cPassError").style.display='block';
         }
         else
-        {
-            history.push("/adminSignin")
-        }
+        // {
+        //     history.push("/adminSignin")
+        // }
     //  history.push("/home")
-    // {createUserWithEmailAndPassword(auth, email, password).then(()=>{
-    //     history.push("/home")
-    // }).catch((error)=>{console.log(error)})
-    // }
+    {createUserWithEmailAndPassword(auth, email, password).then(()=>{
+        
+
+
+
+        history.push("/home")
+    }).catch((error)=>{console.log(error)})
+    }
     });
 
     const adminKey=(()=>
@@ -67,7 +76,7 @@ function AdminSignUp()
         <h1>Admin Sign Up</h1>
         <input onKeyPress={adminKey} onChange={(e)=>setAdminId(e.target.value)} className='input1' id='admin' type="text" placeholder="Admin ID"/>
         <span className='adminError'>Enter the Admin ID !</span>
-        <input onKeyPress={nameKey} className='input1' id='name' type="text" placeholder="Name and Surname"/>
+        <input onKeyPress={nameKey} className='input1' id='name' type="text" placeholder="Name and Surname" onChange={(e)=>setFullName(e.target.value)}/>
         <span className='nameError' >Enter your name and surname !</span>
         <input onKeyPress={emailKey} onChange={(e)=>setEmail(e.target.value)} className='input1' id='email' type="email" placeholder="email example@gmail.com"/>
         <span className='emailError'>Enter your email !</span>

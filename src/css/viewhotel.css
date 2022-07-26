@@ -1,0 +1,126 @@
+.view-content-container
+{
+    width: 70%;
+    height:850px;
+    border-radius: 25px;
+    box-shadow: 0 4px 20px 0 black;
+    margin-top: 50px;
+    padding-left: 15px;
+    padding-top: 2px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.photos
+{
+    display: flex;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    border :1px solid rgb(177, 177, 177);
+}
+.room-div
+{
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    overflow:hidden;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.room-div img
+{
+    width: 300px;
+}
+.more-details
+{
+width: 89%;
+height: 520px;
+border-radius: 20px;
+border :1px solid rgb(177, 177, 177);
+margin-top: 20px;
+margin-left: auto;
+margin-right: auto;
+padding-left: 15px;
+padding-right: 15px;
+}
+.description
+{
+    width: 97%;
+    height: 100px;
+    border-radius: 20px;
+    border :1px solid rgb(177, 177, 177);
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding:10px;
+}
+.low-description
+{
+    width: 97%;
+    height: 270px;
+    border-radius: 20px;
+    border :1px solid rgb(177, 177, 177);
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding:10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.calculate
+{
+    display: block;
+    width: 230px;
+    height: 270px;
+    margin-right: 30px;
+    background-color: rgb(35, 42, 48);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+iframe
+{
+    border-radius: 10px;
+}
+.checkin
+{
+height: 30px;
+border: 3px orange solid;
+border-radius: 8px;
+}
+.checkout
+{
+height: 30px;
+border: 3px orange solid;
+margin: 10px;
+border-radius: 8px;
+}
+.days
+{
+    border-radius: 8px;
+    height: 30px;
+    width: 150px;
+    border: 3px orange solid;
+    cursor: pointer;
+}
+.calculate p
+{
+    margin: 5px;
+    color: aliceblue;
+    font-size: 13px;
+
+}
+.book-btn
+{
+    width: 120px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 12px;
+    background-color: orange;
+}

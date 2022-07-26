@@ -39,8 +39,7 @@ const upload=(()=>
                  <input required placeholder="Hotel name" onChange={(e)=>setName(e.target.value)}/>
                  <input required placeholder="Location" onChange={(e)=>setLocation(e.target.value)}/>
                  <input required placeholder="Link from Google maps..." onChange={(e)=>setMap(e.target.value)}/>
-                 <input required placeholder="Price" onChange={(e)=>setPrice(e.target.value)}/>
-                 
+                 <input required placeholder="Price" onChange={(e)=>setPrice(e.target.value)}/>            
                  <label htmlFor="file">Choose imag</label>
                  <input type="file" id ="file" accept="image/*" onChange={handleChange}/>
                  <br></br>

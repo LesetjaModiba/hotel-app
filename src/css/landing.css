@@ -44,16 +44,24 @@
     background-color: rgb(35, 42, 48);
     border-radius: 20px;
     box-shadow: 0 4px 20px 0 rgb(0, 0, 0);
-    margin-bottom: 60px;
-    
-    
+    margin-bottom: 20px;
+    margin-top: 0;
+    /* position: absolute;
+    top: 450px;
+    margin-left: 15.8%; */
 }
 .search-icon
 {
     width: 30px;
     position: absolute;
-    top: 565px;
+    top: 615px;
     right: 28.6%;
+}
+.hotels-in
+{
+text-align: center;
+color: gray;
+display: none;
 }
 .where
 {
@@ -97,7 +105,7 @@ border-right: none;
 .header-img-div
 {
     overflow: hidden;
-    height: 400px;
+    height: 450px;
     margin-bottom: 40px;
 }
 .offer
