@@ -12,6 +12,12 @@ function ClientSignUp()
     const [password,setPassword]=useState('');
     const [full_name,setFullName]=useState("");
     const [location,setLocation]=useState("");
+    const [file, setFile] = useState("");
+
+    function handleChange(event) {
+        setFile(event.target.files[0]);
+        
+    }
     let history=useHistory();
     const signUpClick=(()=>
     {
@@ -41,7 +47,8 @@ function ClientSignUp()
             full_name:full_name,
             email:email,
             location:location,
-            userId:auth.currentUser.uid
+            userId:auth.currentUser.uid,
+            profile_pic:file.name
         };
         addDoc(UsersCollectionRef, userDetails).then(()=>{
             alert("added successfully")
@@ -68,6 +75,7 @@ function ClientSignUp()
     {
         document.querySelector(".cPassError").style.display='none';
     });
+    console.log(file.name);
     return(
         <div className='sign-container'>
         <h1>Client Sign Up</h1>
@@ -80,8 +88,8 @@ function ClientSignUp()
         <span className='passError'>Enter your password !</span>
         <input onKeyPress={cPassKey} className='input1' id='cPassword' type="password" placeholder="Confirm password"/>
         <span className='cPassError'>Confirm your password !</span>
-        <imput className="check" type="checkbox"/>
-        <label htmlFor="check">Show password</label> 
+        <label htmlFor="file">Choose image</label>
+                 <input type="file" id ="file" accept="image/*" onChange={handleChange}/>
         <Link className='link2' to="/clientSignin">Already have and account? Log in here</Link>
         <button onClick={signUpClick}>Sign up</button>
         </div>

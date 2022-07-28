@@ -14,6 +14,9 @@ import ClientSignUp from './components/clientSignup';
 import ClientHome from './components/clientHome';
 import ViewHotel from './components/viewhotel';
 import ClientBookings from './components/clientBookings';
+import Profile from './components/profile';
+import AdminBookings from './components/adminBookings';
+import ForgotPassword from './components/forgotPassword';
 function App() {
   // const [clickedHotel,setClickedHotel]=useState([])
   // const addHotel=((details)=>
@@ -27,20 +30,23 @@ function App() {
   // let addHotel=((hot)=>
   // setHotelId(hot)
   // )
-  const [objdata,setObjData]=useState("")
-  let obj=((dat)=>(setObjData(dat)))
+  // const [objdata,setObjData]=useState("")
+  // let obj=((dat)=>(setObjData(dat)))
 
-  console.log(objdata)
+  // console.log(objdata)
   return (
     
        <Router>
          <Switch>
            <Route exact path="/" component={Landing}></Route>
            <Route path="/clientHome" component={ClientHome}></Route>
-           <Route path="/viewhotel/:id" children={<ViewHotel add={obj}/>}></Route>
-           <Route path="/clientBookings" children={<ClientBookings get={objdata}/>}></Route>
+           <Route path="/viewhotel/:id" component={ViewHotel}></Route>
+           <Route path="/clientBookings" component={ClientBookings}></Route>
+           <Route path="/adminBookings" component={AdminBookings}></Route>
+           <Route path="/profile" component={Profile}></Route>
            <Route path="/loginas" component={LoginAs}></Route>
            <Route path="/clientSignin/" component={ClientSignIn}></Route>
+           <Route path="/forgotPassword" component={ForgotPassword}></Route>
            <Route path="/clientSignup" component={ClientSignUp}></Route>
            <Route path="/adminSignin" component={AdminSignIn}></Route>
            <Route path="/home" component={Home}></Route>

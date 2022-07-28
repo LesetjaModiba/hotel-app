@@ -47,6 +47,7 @@ function ClientSignIn()
             <span className="emailError">Enter your email or username!</span>
             <input onKeyPress={passKey} onChange={(e)=>setPassword(e.target.value)} className="password" type="password" placeholder="Type your password"/>
             <span  className="passError">password can't be empty!</span>
+            <Link className='link1' to="/forgotPassword">Forgot password?</Link>
             <Link className='link1' to="/clientSignup">Don't have an account? Click here to sign up</Link>
             <button className='login-btn' onClick={loginClick}>Login</button>
 

@@ -12,6 +12,7 @@ const Add = () => {
 // Handles input change event and updates state
 function handleChange(event) {
     setFile(event.target.files[0]);
+    
 }
 const upload=(()=>
 {
@@ -40,7 +41,7 @@ const upload=(()=>
                  <input required placeholder="Location" onChange={(e)=>setLocation(e.target.value)}/>
                  <input required placeholder="Link from Google maps..." onChange={(e)=>setMap(e.target.value)}/>
                  <input required placeholder="Price" onChange={(e)=>setPrice(e.target.value)}/>            
-                 <label htmlFor="file">Choose imag</label>
+                 <label htmlFor="file">Choose image</label>
                  <input type="file" id ="file" accept="image/*" onChange={handleChange}/>
                  <br></br>
                  <button className="btn-upload" onClick={upload}>Upload</button>

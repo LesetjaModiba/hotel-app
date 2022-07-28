@@ -24,13 +24,14 @@ const Landing = () => {
     };
     getDetails();
   }, []);
+  const [priceFilter,setPriceFilter]=useState("");
   return (
     <div className="main-content-container">
          <HeaderLanding/>
          <div className="header-img-div">
          <img
                 className="wall-pic"
-                src={require('../Assets/images/hotel1.jfif')}
+                src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
                 alt="wallpaper"
               />
          </div>
@@ -42,27 +43,58 @@ const Landing = () => {
          <h1 className="welcome">Welcome to Hotels South Africa</h1>
          
          <div className="search-container">
-          <input placeholder="Where do you want to go?..." type="text" className="where" onChange={(e)=>setSearchItem(e.target.value)}></input>
-          <img
-                className="search-icon"
-                src={require('../Assets/icons/search.png')}
-                alt="search"
-              />
-         {/* <input type="date" className="checkin"></input> 
+       <div className="search-filter-container">
+
+       <input
+          placeholder="Where do you want to go?..."
+          type="text"
+          className="where"
+          onChange={(e) => setSearchItem(e.target.value)}
+        ></input>
+        <img
+          className="search-icon"
+          src={require("../Assets/icons/search.png")}
+          alt="search"
+        />
+        {/* <input type="date" className="checkin"></input> 
          <input type="date" className="checkout"></input> 
          <input type="submit" className="search-btn"/> */}
-
-         </div>
+        <div className="filter-div">
+          <p>Filter with price</p>
+          <select onChange={(e)=>setPriceFilter(e.target.value)}>
+            <option>2000</option>
+            <option>1500</option>
+            <option>1000</option>
+            <option>800</option>
+            <option>600</option>
+            <option>400</option>
+            <option>200</option>
+          </select>
+        </div>
+       </div>
+       
+      </div>
+      
       <div className="content-container">
       <h1 className="hotels-in">Search result: Hotels in {searchItem}</h1>
         {details.filter((hotel)=>{
-          if (searchItem==="")
+           if (searchItem === "") {
+            if(priceFilter==="")
+            {
+              return hotel
+            }
+            else if(parseInt(hotel.price) <= parseInt(priceFilter))
+            {
+              
+              return hotel
+
+            }
+            
+          } else if (
+            hotel.location.toLowerCase().includes(searchItem.toLowerCase())
+          ) 
           {
-            return hotel
-          }
-          else if(hotel.location.toLowerCase().includes(searchItem.toLowerCase()))
-          {
-            return hotel
+            return hotel;
           }
         }).map((hotel, id) => (
           <div className="landing-hotel-card" key={id}>

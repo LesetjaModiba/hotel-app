@@ -18,11 +18,11 @@ h1
 }
 .sign-container
 {
-    margin-top: 250px;
+    margin-top: 180px;
     margin-left: auto;
     margin-right: auto;
     width: 650px;
-    height: 600px;
+    height: 650px;
     background-color: rgb(226, 226, 226);
     border-radius: 20px;
     box-shadow: 0 4px 20px 0 rgb(0, 0, 0);
@@ -91,5 +91,8 @@ button:hover
 .link2
 {
     color: black;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    margin: 3px;
 
 }
