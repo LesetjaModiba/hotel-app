@@ -67,7 +67,7 @@ const ClientBookings = () => {
           <input
             placeholder="Search your bookings with the hotel name..."
             type="text"
-            className="where"
+             id="search"
             onChange={(e) => setSearchItem(e.target.value)}
           ></input>
         </div>

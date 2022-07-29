@@ -124,7 +124,7 @@ display: none;
 }
 .fifty
 {
-    font-size: 60px;
+    font-size: 40px;
     color: orange;
 }
 .special
@@ -248,4 +248,108 @@ display: none;
     margin-left: auto;
     margin-right: auto;
     border-radius: 10px;
+}
+@media only screen and (max-width:1000px){
+    .landing-hotel-card
+    {
+        display: block;
+        width: 80%;
+        height: 44vh;
+ 
+    }
+    .content-container
+    {
+        margin-left: auto;
+        margin-right: auto;
+        width: 95%;
+        border-left: solid 1px gray;
+        border-right: solid 1px gray;
+        display:grid;
+    }
+    .hotel-img-div
+{
+    border-radius: 20px;
+    height: 230px;
+    overflow: hidden;
+    margin: 0;
+}
+.badge{
+    display: none;
+}
+.welcome
+{
+    display: none;
+}
+.icon-div
+{
+    display: none;
+}
+.details-div
+{
+    margin-left: -20px;
+}
+.search-filter-container
+{
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 99%;
+    display: block;
+    align-content: center;
+    justify-content: center;
+}
+.filter-div select
+{
+    width: 90px;
+    height: 35px;
+    margin-left: 5px;
+    border: solid orange;
+    border-radius: 5px;
+}
+.filter-div p
+{
+    margin: 0;
+    margin-top: 5px;
+    margin-left: 5px;
+    font-size: 13px;
+    color: aliceblue;
+    justify-content: center;
+}
+.filter-div
+{
+    margin-left: 31%;
+}
+.search-icon
+{
+  display: none;
+}
+.hotels-in
+{
+text-align: center;
+color: gray;
+display: none;
+}
+.where
+{
+
+    width: 65%;
+    height: 35px;
+    padding-left: 1%;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px 0 rgb(0, 0, 0);
+    font-size: 13px;
+    margin-left: 16%;
+}
+.header-img-div
+{
+    overflow: hidden;
+    height: 200px;
+    margin-bottom: 40px;
+}
+.fifty
+{
+    font-size: 30px;
+}
+
 }

@@ -22,8 +22,11 @@ background-color: rgb(35, 42, 48);
 {
     display: flex;
    position: absolute;
-   right: 10px;
+   right: 0px;
+   top:0;
    text-align: center;
+   height: 60px;
+   background-color: rgb(35, 42, 48);
 }
 label
 {
@@ -55,7 +58,9 @@ label
 .text
 {
     top: 60px;
-    background-color: black;
+    background-color: rgb(35, 42, 48);
+    height: 300px;
+    width: 200px;
 }
 /* #check:checked + .text
 {

@@ -125,3 +125,53 @@ border-radius: 8px;
     font-size: 12px;
     background-color: orange;
 }
+@media only screen and (max-width:960px){
+    .view-content-container
+    {
+        width: 85%;
+    }
+    .more-details
+    {
+        height: 780px;
+    }
+    .description
+    {
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+        scroll-snap-type: none;
+    }
+    .room-div
+    {
+        width: 150px;
+        height: 150px;
+    }
+    .low-description
+{
+    width: 97%;
+    height: 560px;
+   display: block;
+}
+.calculate
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+.map
+{
+    margin-top: 15px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   margin-left: auto;
+   margin-right: auto;
+}
+iframe
+{
+    width: 100%;
+}
+.view-content-container
+{
+    height: 1050px;
+}
+}
