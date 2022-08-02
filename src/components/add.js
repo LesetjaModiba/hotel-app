@@ -1,35 +1,101 @@
 
 import "../css/add.css"
 import { useState } from "react";
-import { db } from "../config/firebase";
+import { db,storage } from "../config/firebase";
 import { addDoc, collection } from "firebase/firestore";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 const Add = () => {
-    const [file, setFile] = useState("");
+ 
     const [name,setName]=useState("");
     const [location,setLocation]=useState("");
     const [price,setPrice]=useState("");
     const [map,setMap]=useState("");
-// Handles input change event and updates state
-function handleChange(event) {
-    setFile(event.target.files[0]);
+
+    const [form, setForm] = useState({
+      
+        image: "",
+
+    });
+
     
-}
-const upload=(()=>
-{
-    const collectionRef=collection(db, "hotelDetails")
-    const hotelDetails={
-        name:name,
-        location:location,
-        map:map,
-        price:price,
-        image:file.name
+    // const [file, setFile] = useState("");
+
+// Handles input change event and updates state
+// function handleChange(event) {
+//     setForm( {...form,image:event.target.files[0]});
+    
+// }
+
+const handleChange = (e) => {
+    setForm( {...form,image:e.target.files[0]});
+  };
+
+
+const upload = () => {
+
+
+
+    const storageRef = ref(
+        storage,
+        `/images/${Date.now()}${form.image.name}`
+    );
+    const uploadImage = uploadBytesResumable(storageRef, form.image);
+    uploadImage.on(
+        "state_changed",
+        (snapshot) => {
+            const progressPercent = Math.round(
+                (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            );
+        },
+        (err) => {
+            console.log(err);
+        },
+        () => {
+            setForm({
+          
+                image: "",
+            });
+            getDownloadURL(uploadImage.snapshot.ref).then((url) => {
+                const collectionRef = collection(db, "hotelDetails");
+                const hotelDetails={
+                    name:name,
+                    location:location,
+                    map:map,
+                    price:price,
+                    image:url
+                    
+                };
+                addDoc(collectionRef, hotelDetails)
+                    .then(() => {
+                        alert("Hotel added successfully", { type: "success" });
+
+                    })
+                    .catch((err) => {
+                        alert("Error adding hotel", { type: "error" });
+                    });
+            });
+        }
+    );
+};
+
+
+
+// const upload=(()=>
+// {
+//     const collectionRef=collection(db, "hotelDetails")
+//     const hotelDetails={
+//         name:name,
+//         location:location,
+//         map:map,
+//         price:price,
+//         image:file.name
         
-    };
-    addDoc(collectionRef, hotelDetails).then(()=>{
-        alert("added successfully")
-    }).catch((error)=>{console.log(error);alert("Error while adding")})
-    // props.Add(amount, item, transactionType);
-})
+//     };
+//     addDoc(collectionRef, hotelDetails).then(()=>{
+//         alert("added successfully")
+//     }).catch((error)=>{console.log(error);alert("Error while adding")})
+//     // props.Add(amount, item, transactionType);
+// })
     return ( 
         <>
     

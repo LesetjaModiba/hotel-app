@@ -4,6 +4,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../config/firebase";
 
+
 const Landing = () => {
   const [details, setDetails] = useState([]);
   const [searchItem,setSearchItem]=useState("")
@@ -25,6 +26,10 @@ const Landing = () => {
     getDetails();
   }, []);
   const [priceFilter,setPriceFilter]=useState("");
+
+  const view = (id) => {
+    alert("Log in or register")
+  };
   return (
     <div className="main-content-container">
          <HeaderLanding/>
@@ -97,11 +102,12 @@ const Landing = () => {
             return hotel;
           }
         }).map((hotel, id) => (
-          <div className="landing-hotel-card" key={id}>
+          <div className="landing-hotel-card" onClick={(e) => view (hotel.id)} key={id}>
             <div className="hotel-img-div">
               <img
                 className="hotel-pic"
-                src={require(`../Assets/images/${hotel.image}`)}
+                // src={require(`../Assets/images/${hotel.image}`)}
+                src={hotel.image}
                 alt={hotel.name}
               />
             </div>

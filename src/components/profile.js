@@ -6,6 +6,7 @@ import {auth} from "../config/firebase"
 import ClientHeader from "./clientHeader";
 const Profile = () => {
     const [users, setUsers] = useState([]);
+    
  
     useEffect(() => {
       const usersCollectionRef = collection(db, "users");
@@ -33,7 +34,8 @@ const Profile = () => {
             <div className="profile-pic-div">
             <img
                 className="hotel-pic"
-                src={require(`../Assets/images/${inf.profile_pic}`)}
+                // src={require(`../Assets/images/${inf.profile_pic}`)}
+                src={inf.profile_pic}
                 alt="profile pic"
               />
             </div>

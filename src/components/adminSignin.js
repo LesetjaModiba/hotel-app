@@ -1,5 +1,5 @@
 import '../css/adminSignin.css'
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory} from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../config/firebase';
 import { useState } from 'react';
@@ -10,7 +10,8 @@ function AdminSignIn()
     const [adminId,setAdminId]=useState("")
 
     let history=useHistory();
-    
+    console.log("email :", "admin@gmail.com")
+    console.log("Password :", "123456")
     const loginClick=(()=>
     {
         if(document.querySelector(".email").value==="")
@@ -44,7 +45,7 @@ function AdminSignIn()
     return(
         <div className="login-container">
             <h1>Admin Log in</h1>
-            <input onKeyPress={emailKey} onChange={(e)=>setAdminId(e.target.value)} className="adminId" type="text" placeholder="admin ID"/>
+            <input onKeyPress={emailKey} onChange={(e)=>setAdminId(e.target.value)} className="adminId" value="212" type="text" placeholder="admin ID"/>
             <span className="adminError">Enter your email or username!</span>
             <input onKeyPress={emailKey} onChange={(e)=>setEmail(e.target.value)} className="email" type="email" placeholder="Enter your email"/>
             <span className="emailError">Enter your email or username!</span>

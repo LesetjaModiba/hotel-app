@@ -35,7 +35,7 @@ const Display = () => {
   // }, []);
 
   //   let img=details.image;
-
+console.log(details)
   return (
     <div className="disp-content">
       {details.map((hotel, id) => (
@@ -43,7 +43,8 @@ const Display = () => {
           <div className="img-div">
             <img
               className="hotel-pic"
-              src={require(`../Assets/images/${hotel.image}`)}
+              // src={require(`../Assets/images/${hotel.image}`)}
+              src={hotel.image}
               alt={hotel.name}
             />
           </div>

@@ -90,6 +90,7 @@ const ViewHotel = () => {
     const [checkin,setCheckin]=useState(Date())
     const [checkout,setCheckout]=useState(Date())
     const [total,setTotal]=useState(0)
+
    useEffect(()=>{
    
     let diff = (new Date(checkout) - new Date(checkin))/(1000*60*60*24)

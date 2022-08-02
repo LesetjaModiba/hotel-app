@@ -121,7 +121,8 @@ const ClientHome = () => {
               <div className="hotel-img-div">
                 <img
                   className="hotel-pic"
-                  src={require(`../Assets/images/${hotel.image}`)}
+                  // src={require(`../Assets/images/${hotel.image}`)}
+                  src={hotel.image}
                   alt={hotel.name}
                 />
               </div>

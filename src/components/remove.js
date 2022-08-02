@@ -7,11 +7,12 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { db } from "../config/firebase";
+import { db,storage } from "../config/firebase";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 const Remove = () => {
   const [details, setDetails] = useState([]);
-  const [file, setFile] = useState("");
+
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
   const [price, setPrice] = useState("");
@@ -20,6 +21,15 @@ const Remove = () => {
   const [hotelName,setHotelName]=useState("");
   const [map,setMap]=useState("");
  
+  const [form, setForm] = useState({
+      
+    image: "",
+
+});
+
+const handleChange = (e) => {
+  setForm( {...form,image:e.target.files[0]});
+};
 
   useEffect(() => {
     const hotelCollectionRef = collection(db, "hotelDetails");
@@ -39,9 +49,7 @@ const Remove = () => {
     };
     getDetails();
   }, []);
-  function handleChange(event) {
-    setFile(event.target.files[0]);
-  }
+
 
   const deleteHotel = async (id) => {
     const hotelDoc = doc(db, "hotelDetails", id);
@@ -61,28 +69,79 @@ const Remove = () => {
   const close = () => {
     document.querySelector(".edit").style.display = "none";
   };
-  const updateHotel = async () => {
-    const hotelDoc = doc(db, "hotelDetails", (JSON.stringify({hotelId})).substring(12,32));
-    const newHotelDetails = {
-      name: name,
-      location: location,
-      map:map,
-      price: price,
-      image: file.name,
-    };
-    await updateDoc(hotelDoc, newHotelDetails)
-      .then(() => {
-        alert("Updated Successfully");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    //  console.log((JSON.stringify({hotelId})).substring(12,32))
-  };
+  // const updateHotel = async () => {
+  //   const hotelDoc = doc(db, "hotelDetails", (JSON.stringify({hotelId})).substring(12,32));
+  //   const newHotelDetails = {
+  //     name: name,
+  //     location: location,
+  //     map:map,
+  //     price: price,
+  //     image: file.name,
+  //   };
+  //   await updateDoc(hotelDoc, newHotelDetails)
+  //     .then(() => {
+  //       alert("Updated Successfully");
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  //   //  console.log((JSON.stringify({hotelId})).substring(12,32))
+  // };
+
+  const [percent,setPercent]=useState(0)
+const updateHotel = () => {
+  const storageRef = ref(
+      storage,
+      `/images/${Date.now()}${form.image.name}`
+  );
+  const uploadImage = uploadBytesResumable(storageRef, form.image);
+  uploadImage.on(
+      "state_changed",
+      (snapshot) => {
+          const progressPercent = Math.round(
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          setPercent(progressPercent)
+      },
+      (err) => {
+          console.log(err);
+      },
+      () => {
+          setForm({
+        
+              image: "",
+          });
+
+          getDownloadURL(uploadImage.snapshot.ref).then((url) => {
+              const hotelDoc = doc(db, "hotelDetails",(JSON.stringify({hotelId})).substring(12,32));
+              const newHotelDetails={
+                  name:name,
+                  location:location,
+                  map:map,
+                  price:price,
+                  image:url
+                  
+              };
+
+              updateDoc(hotelDoc, newHotelDetails)
+                  .then(() => {
+                      alert("updated successfully", { type: "success" });
+
+                  })
+                  .catch((err) => {
+                      alert("Error updating hotel", { type: "error" });
+                  });
+          });
+      }
+  );
+
+};
+
   return (
     <div className="remove-container">
+       <p style={{position:"absolute",top:"2",color:"white"}}>{percent}</p>   
       <h2 className="remove">Manage Hotels</h2>
-
+     
       {details.map((hotel, id) => (
         <div className="remove-card" key={id}>
           <div className="edit">
@@ -130,7 +189,8 @@ const Remove = () => {
           <div className="img-remove-div">
             <img
               className="hotel-pic-remove"
-              src={require(`../Assets/images/${hotel.image}`)}
+              // src={require(`../Assets/images/${hotel.image}`)}
+              src={hotel.image}
               alt={hotel.name}
             />
           </div>
