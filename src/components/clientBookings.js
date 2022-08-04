@@ -34,28 +34,13 @@ const ClientBookings = () => {
       dat = booking[i];
     }
   }
-  // console.log(auth.currentUser.uid)
-  // console.log(booking);
-  //   console.log(new Date(dat.date.slice(0,10)));
-  //   if(Date.now()>new Date(dat.date.substring(0,10)))
-  //   {
-  //     console.log("passed")
-  //   }
-  //   else{
-  //     console.log("not")
-  //   }
-
-  // console.log(new Date(dat.date));
 
   const cancel = async (id) => {
     const bookingDoc = doc(db, "bookings", id);
     await deleteDoc(bookingDoc).then(() => {});
     alert("Booking cancelled");
-    // console.log(id)
+   
   };
-
-  // console.log(booking)
-  // console.log("clicked")
 
   return (
     <div>

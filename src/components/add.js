@@ -78,24 +78,6 @@ const upload = () => {
     );
 };
 
-
-
-// const upload=(()=>
-// {
-//     const collectionRef=collection(db, "hotelDetails")
-//     const hotelDetails={
-//         name:name,
-//         location:location,
-//         map:map,
-//         price:price,
-//         image:file.name
-        
-//     };
-//     addDoc(collectionRef, hotelDetails).then(()=>{
-//         alert("added successfully")
-//     }).catch((error)=>{console.log(error);alert("Error while adding")})
-//     // props.Add(amount, item, transactionType);
-// })
     return ( 
         <>
     

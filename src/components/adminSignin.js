@@ -7,7 +7,8 @@ function AdminSignIn()
 {  
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
-    const [adminId,setAdminId]=useState("")
+    const [adminId,setAdminId]=useState("");
+    const [loading, setLoading] = useState(false);
 
     let history=useHistory();
     console.log("email :", "admin@gmail.com")
@@ -27,13 +28,22 @@ function AdminSignIn()
         //     history.push("/home");
         //  }
         {
+            setLoading(true);
             signInWithEmailAndPassword(auth, email, password).then(()=>{ 
                 history.push("/home");
-            }).catch((error)=>{console.log(error)})
+            }).catch((error)=>{console.log(error);
+                setLoading("false")
+                document.getElementById("loader").style.display = "none";
+            })
 
         }
          
     });
+
+    if (loading === true) {
+        document.getElementById("loader").style.display = "block";
+      }
+
     const emailKey=(()=>
     {
        document.querySelector(".emailError").style.display='none';
@@ -44,6 +54,20 @@ function AdminSignIn()
     });
     return(
         <div className="login-container">
+             <div
+        style={{
+          width: "180px",
+          height:"40px",
+          paddingBottom:"10px",
+          textAlign: "center",
+          background: "orange",
+          borderRadius: "8px",
+          display: "none",
+        }}
+        id="loader"
+      >
+        <h3>Loading...</h3>
+      </div>
             <h1>Admin Log in</h1>
             <input onKeyPress={emailKey} onChange={(e)=>setAdminId(e.target.value)} className="adminId" value="212" type="text" placeholder="admin ID"/>
             <span className="adminError">Enter your email or username!</span>

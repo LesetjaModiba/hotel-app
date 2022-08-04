@@ -26,15 +26,12 @@ const AdminBookings = () => {
     };
     getBookings();
   }, []);
-//   }
-  // console.log(auth.currentUser.uid)
-  // console.log(booking);
-//   console.log(booking);
+
 const decline = async (id) => {
   const bookingDoc = doc(db, "bookings", id);
   await deleteDoc(bookingDoc).then(() => {});
   alert("Booking removed");
-  // console.log(id)
+  
 };
   return (
     <div>

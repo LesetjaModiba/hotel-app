@@ -1,11 +1,10 @@
 import "../css/adminSignup.css";
 import { useHistory, Link } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { collection, addDoc, doc } from "firebase/firestore";
+import { collection, addDoc} from "firebase/firestore";
 import { db, storage } from "../config/firebase";
 import { auth } from "../config/firebase";
 import { useState } from "react";
-import { } from "bootstrap";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 function ClientSignUp() {
@@ -52,9 +51,9 @@ function ClientSignUp() {
           uploadImage.on(
             "state_changed",
             (snapshot) => {
-              const progressPercent = Math.round(
-                (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-              );
+              // const progressPercent = Math.round(
+              //   (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+              // );
               setState(true)
             },
             (err) => {
@@ -75,7 +74,7 @@ function ClientSignUp() {
                 };
                 addDoc(UsersCollectionRef, userDetails)
                   .then(() => {
-                    alert("signed upp successfully", { type: "success" });
+                    alert("signed up successfully", { type: "success" });
                     history.push("/clientHome");
                   })
                   .catch((err) => {
